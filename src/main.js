@@ -1,34 +1,10 @@
 import './style.css';
 import { getElementById } from './utils/getElementById';
 
-const login = getElementById('login') // Cleaner code 
+const login = getElementById('login'); // Cleaner code 
+const app = getElementById('app');
 
-login.addEventListener('submit', e =>{ // e (event) is the object of the event, it takes the report of what just happend so it can execute the function inside.
-    e.preventDefault();
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const store
 
 const dataUser = [
   {
@@ -102,3 +78,22 @@ const dataUser = [
     password: "data123",
   },
 ];
+
+login.addEventListener('submit', e =>{ // e (event) is the object of the event, it takes the report of what just happend so it can execute the function inside.
+    e.preventDefault();
+
+    const {email, password} = Object.fromEntries(new FormData(login));
+
+    const getUser = dataUser.find(user => user.email === email);
+
+    console.log(getUser);
+    
+    if (email === getUser?.email && password === getUser?.password){
+      app.innerHTML = `<p>Welcome ${getUser.name}</p>
+      <button id="btn-logout" class="bg-blue-950 cursor-pointer text-amber-50 mt-2 p-2 rounded-md self-center ml-2">Logout</button>
+      `
+      document.querySelector('#btn-logout').addEventListener('click', ()=>{
+      })
+      
+    }
+})
