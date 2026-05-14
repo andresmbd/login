@@ -100,6 +100,15 @@ const dataUser = [
     password: "data123",
   },
 ];
+const saveUser = JSON.parse(localStorage.getItem('user'))
+
+if (saveUser){
+  loginWelcome(saveUser);
+  console.log(saveUser);
+  
+}else{
+  loginView()
+}
 
 function loginInit(){
   const loginForm = getElementById('login'); // Se captura el form despues de que loginView() lo cree
@@ -131,6 +140,7 @@ function loginWelcome(user){
   app.innerHTML = `<p>Welcome ${user.name}</p>
   <button id="btn-logout" class="bg-blue-950 cursor-pointer text-amber-50 mt-2 p-2 rounded-md self-center ml-2">Logout</button>
   `;
+  
   document.querySelector('#btn-logout').addEventListener('click', ()=>{
     store.logout();
     loginView();
@@ -165,7 +175,6 @@ function loginView(){ // el navegador borra todo lo que había en el .html y cre
    loginInit()
 }
 
-loginView()
 
 
 
