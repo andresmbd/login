@@ -119,7 +119,10 @@ function loginInit(){
 
       console.log(store);
     }else{
-      alert('Either the password and/or the username is incorrect')
+      const alertMsg = getElementById('error')
+      alertMsg.innerHTML = `
+      <span id="alert-msg" class="text-red-700 ">Either the username and/or password is incorrect</span>
+      `
     }
   });
 }
@@ -155,9 +158,11 @@ function loginView(){ // el navegador borra todo lo que había en el .html y cre
     </div>
 
     <button class="bg-blue-950 cursor-pointer text-amber-50 mt-2 p-2 rounded-md self-center w-full">Login</button>
+    <div id="error"></div>
   
-  </form>`
-  loginInit()
+  </form>
+`
+   loginInit()
 }
 
 loginView()

@@ -2,7 +2,7 @@
 
 ## Object.fromEntries() 
 Toma una lista de pares clave-valor y la convierte en un nuevo objeto.
-## Explicacion linea 85 de ./assets/main.js
+# Explicacion linea 85 de ./assets/main.js
 
 1. HTML: <input name="password" ...>
 
