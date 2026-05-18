@@ -137,27 +137,27 @@ function loginValidation(){
 }
 
 function loginWelcome(user){
-  // app.innerHTML = `<p>Welcome ${user.name}</p>
-  // <button id="btn-logout" class="bg-blue-950 cursor-pointer text-amber-50 mt-2 p-2 rounded-md self-center ml-2">Logout</button>
-  // `;
-  
-  // document.querySelector('#btn-logout').addEventListener('click', ()=>{
-  //   store.logout();
-  //   loginBox();
-  // });
   switch (user.role) {
     case "Team Leader":
       app.innerHTML = `
-      <h1>Team Leader dashboard</h1>
-      <p>Welcome ${user.name}</p>
-      <button id="btn-logout" class="bg-blue-950 cursor-pointer text-amber-50 mt-2 p-2 rounded-md self-center ml-2">Logout</button>
+      <div class="flex flex-col items-center">
+        <div class="flex items-center">
+          <h1>Team Leader dashboard</h1>
+          <button id="btn-logout" class="bg-blue-950 cursor-pointer text-amber-50 mt-2 p-2 rounded-md self-center ml-2">Logout</button>
+        </div>
+        <p class="mt-5">Welcome ${user.name}</p>
+      </div>
       `;
       break;
     case "English Coach":
       app.innerHTML = `
-      <h1>English Coach dashboard</h1>
-      <p>Welcome ${user.name}</p>
-      <button id="btn-logout" class="bg-blue-950 cursor-pointer text-amber-50 mt-2 p-2 rounded-md self-center ml-2">Logout</button>
+      <div class="flex flex-col items-center">
+        <div class="flex items-center">
+          <h1>English Coach dashboard</h1>
+          <button id="btn-logout" class="bg-blue-950 cursor-pointer text-amber-50 mt-2 p-2 rounded-md self-center ml-2">Logout</button>
+        </div>
+        <p class="mt-5">Welcome ${user.name}</p>
+      </div>
       `;
       break;
     default:
